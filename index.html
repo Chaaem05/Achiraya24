@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume | Achiraya Kamkhian</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background: #f1f5f9;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            padding: 45px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            background: white;
+        }
+
+        .header-info h1 {
+            font-size: 38px;
+            margin-bottom: 5px;
+        }
+
+        .header-info h2 {
+            font-size: 20px;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            font-size: 14px;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main */
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .left {
+            background: #f8fafc;
+            padding: 35px;
+        }
+
+        .right {
+            padding: 35px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            color: #1e40af;
+            font-size: 21px;
+            font-weight: bold;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+        }
+
+        /* Profile */
+        .profile {
+            text-align: justify;
+        }
+
+        /* Skills */
+        .skill {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #6366f1);
+            border-radius: 10px;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item h3 {
+            font-size: 16px;
+            color: #1e293b;
+        }
+
+        .education-item .school {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .date {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* Experience */
+        .experience-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 30px;
+        }
+
+        .experience-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 12px;
+            height: 12px;
+            background: #2563eb;
+            border-radius: 50%;
+        }
+
+        .experience-item::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background: #cbd5e1;
+        }
+
+        .experience-item:last-child::after {
+            display: none;
+        }
+
+        .experience-item h3 {
+            color: #1e293b;
+            font-size: 19px;
+        }
+
+        .company {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .experience-item ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        /* Projects */
+        .project {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .project h3 {
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .project a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* Languages */
+        .language {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e293b;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 35px 20px;
+            }
+
+            .header-info h1 {
+                font-size: 30px;
+            }
+
+            .contact {
+                justify-content: center;
+            }
+
+            .main {
+                grid-template-columns: 1fr;
+            }
+
+            .left,
+            .right {
+                padding: 25px;
+            }
+        }
+
+        /* Print */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .header {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+
+        <!-- เปลี่ยน URL เป็นรูปของตัวเอง -->
+        <img
+            class="profile-image"
+            src="https://via.placeholder.com/150"
+            alt="Profile Photo"
+        >
+
+        <div class="header-info">
+
+            <h1>[ชื่อ นามสกุล]</h1>
+
+            <h2>นักศึกษา / Web Developer / Programmer</h2>
+
+            <div class="contact">
+
+                <span>📍 [จังหวัด, ประเทศ]</span>
+
+                <span>📞 [เบอร์โทรศัพท์]</span>
+
+                <span>✉️ [อีเมล]</span>
+
+                <span>
+                    💻
+                    <a href="https://github.com/[username]" target="_blank">
+                        GitHub
+                    </a>
+                </span>
+
+                <span>
+                    🔗
+                    <a href="https://www.linkedin.com/in/[username]" target="_blank">
+                        LinkedIn
+                    </a>
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- ================= LEFT COLUMN ================= -->
+        <aside class="left">
+
+            <!-- Profile -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Profile
+                </h2>
+
+                <p class="profile">
+                    นักศึกษาที่มีความสนใจด้านเทคโนโลยีสารสนเทศ
+                    การพัฒนาเว็บไซต์ และการเขียนโปรแกรม
+                    มีความตั้งใจเรียนรู้เทคโนโลยีใหม่ ๆ
+                    สามารถทำงานเป็นทีมและเรียนรู้สิ่งใหม่ได้อย่างรวดเร็ว
+                </p>
+
+            </section>
+
+
+            <!-- Skills -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Skills
+                </h2>
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>HTML / CSS</span>
+                        <span>90%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>JavaScript</span>
+                        <span>75%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-name">
+                        <span>Git / GitHub</span>
+                        <span>80%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Technologies -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Technologies
+                </h2>
+
+                <div class="tags">
+
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">GitHub</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">VS Code</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- Languages -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Languages
+                </h2>
+
+                <div class="language">
+                    <span>ภาษาไทย</span>
+                    <strong>เจ้าของภาษา</strong>
+                </div>
+
+                <div class="language">
+                    <span>ภาษาอังกฤษ</span>
+                    <strong>ระดับปานกลาง</strong>
+                </div>
+
+            </section>
+
+
+            <!-- Interests -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Interests
+                </h2>
+
+                <div class="tags">
+
+                    <span class="tag">Programming</span>
+                    <span class="tag">Web Development</span>
+                    <span class="tag">Technology</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">AI</span>
+
+                </div>
+
+            </section>
+
+        </aside>
+
+
+        <!-- ================= RIGHT COLUMN ================= -->
+        <div class="right">
+
+            <!-- Education -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Education
+                </h2>
+
+
+                <div class="education-item">
+
+                    <h3>
+                        ปริญญาตรี สาขาวิทยาการคอมพิวเตอร์
+                    </h3>
+
+                    <div class="school">
+                        [ชื่อมหาวิทยาลัย]
+                    </div>
+
+                    <div class="date">
+                        [ปีเริ่มต้น] - ปัจจุบัน
+                    </div>
+
+                    <p>
+                        ศึกษาด้านการเขียนโปรแกรม ฐานข้อมูล
+                        การพัฒนาเว็บไซต์ ระบบเครือข่าย
+                        และเทคโนโลยีสารสนเทศ
+                    </p>
+
+                </div>
+
+
+                <div class="education-item">
+
+                    <h3>
+                        มัธยมศึกษาตอนปลาย
+                    </h3>
+
+                    <div class="school">
+                        [ชื่อโรงเรียน]
+                    </div>
+
+                    <div class="date">
+                        [ปีเริ่มต้น] - [ปีจบ]
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Experience -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Experience
+                </h2>
+
+
+                <div class="experience-item">
+
+                    <h3>
+                        Web Developer Intern
+                    </h3>
+
+                    <div class="company">
+                        [ชื่อบริษัท]
+                    </div>
+
+                    <div class="date">
+                        [เดือน ปี] - [เดือน ปี]
+                    </div>
+
+                    <ul>
+                        <li>
+                            พัฒนาและปรับปรุงเว็บไซต์ด้วย HTML, CSS และ JavaScript
+                        </li>
+
+                        <li>
+                            ทำงานร่วมกับทีมในการออกแบบหน้าเว็บไซต์
+                        </li>
+
+                        <li>
+                            แก้ไขปัญหาและทดสอบระบบก่อนนำไปใช้งาน
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <h3>
+                        Student Project
+                    </h3>
+
+                    <div class="company">
+                        [ชื่อมหาวิทยาลัย]
+                    </div>
+
+                    <div class="date">
+                        [ปี]
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            พัฒนาเว็บไซต์สำหรับโปรเจกต์รายวิชา
+                        </li>
+
+                        <li>
+                            ออกแบบฐานข้อมูลและระบบจัดการข้อมูล
+                        </li>
+
+                        <li>
+                            ใช้ Git และ GitHub สำหรับจัดการ Source Code
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- Projects -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Projects
+                </h2>
+
+
+                <div class="project">
+
+                    <h3>
+                        📌 Personal Portfolio Website
+                    </h3>
+
+                    <p>
+                        เว็บไซต์ Portfolio ส่วนตัว
+                        สำหรับแนะนำประวัติ ทักษะ ผลงาน
+                        และข้อมูลการติดต่อ
+                    </p>
+
+                    <a
+                        href="https://github.com/[username]/portfolio"
+                        target="_blank"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>
+                        📌 Student Management System
+                    </h3>
+
+                    <p>
+                        ระบบจัดการข้อมูลนักศึกษา
+                        สามารถเพิ่ม แก้ไข ลบ และค้นหาข้อมูลนักศึกษา
+                    </p>
+
+                    <a
+                        href="https://github.com/[username]/student-management"
+                        target="_blank"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>
+                        📌 To-Do List Web Application
+                    </h3>
+
+                    <p>
+                        เว็บไซต์สำหรับจัดการรายการงาน
+                        สามารถเพิ่ม ลบ และทำเครื่องหมายงานที่เสร็จแล้ว
+                    </p>
+
+                    <a
+                        href="https://github.com/[username]/todo-list"
+                        target="_blank"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- Certificates -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    Certificates & Activities
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Certificate: Introduction to Web Development
+                    </li>
+
+                    <li>
+                        เข้าร่วมกิจกรรมอบรมด้าน Programming
+                    </li>
+
+                    <li>
+                        เข้าร่วมการแข่งขันหรือกิจกรรมด้านเทคโนโลยี
+                    </li>
+
+                    <li>
+                        เข้าร่วมกิจกรรมของมหาวิทยาลัย
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- References -->
+            <section class="section">
+
+                <h2 class="section-title">
+                    References
+                </h2>
+
+                <p>
+                    สามารถติดต่อเพื่อขอข้อมูลเพิ่มเติมได้
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <p>
+            © 2026 [ชื่อ นามสกุล] | Resume
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
